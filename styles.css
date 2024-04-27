@@ -47,15 +47,15 @@ ul li{
     padding: 0px;
 }
 
-.reel:nth-child(1){
+.reels:nth-child(1){
     left: 0;
 }
 
-.reel:nth-child(2){
+.reels:nth-child(2){
     left: 34.5%;
 }
 
-.reel:nth-child(3){
+.reels:nth-child(3){
     right: 0;
 }
 
