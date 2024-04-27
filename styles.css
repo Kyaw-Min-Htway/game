@@ -76,3 +76,38 @@ ul li{
     0 0 33px 17px #f00;
     border-bottom: solid 4px #627295;
 }
+
+.stop-btn:hover{
+    background-color: rgb(21 199 15);
+    cursor: pointer;
+    box-shadow: 0 0 29px 31px #fff,
+    0 0 19px 19px rgb(21 255 0),
+    0 0 33px 17px rgb(0 255 42);
+}
+
+.stop-btn:active{
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    border-bottom: none;
+}
+
+#start-btn{
+    display: inline-block;
+    padding: 20px 40px;
+    background-color: #13aa52;
+    border: 5px solid #02893a;
+    font-size: 30px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+#start-btn:hover{
+    background-color: #06a347;
+    cursor: pointer;
+}
+
+#start-btn:active{
+    -webkit-transform: translateY(6px);
+    transform: translateY(6px);
+    border: none;
+}
