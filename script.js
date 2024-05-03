@@ -1,24 +1,22 @@
-const { init } = require("express/lib/application");
-
 let slot_screen = document.getElementById("slot-screen");
 let reel = document.getElementsByClassName("reel");
 let reels = document.getElementsByClassName("reels");
 let stop_btn = document.getElementsByClassName("stop-btn");
 let start_btn = document.getElementById("start-btn");
 
-let sec = 100;
-let stopReelFlag = [];
-let reelCounts = [];
-let slotFrameHeight;
-let slotReelsHeight;
-let slotReelItemHeight;
-let slotReelStartHeight;
+let sec = 100;  //slot reel rotation speed (runs per second)
+let stopReelFlag = []; //slot reel stop flag
+let reelCounts = []; //which image to position
+let slotFrameHeight; //frame size
+let slotReelsHeight; //overall reel (image) size
+let slotReelItemHeight; //size of one reel (image)
+let slotReelStartHeight; //initial image value
 
 //initialization
 
 let slot = {
     init:function(){
-        stopReelFlag[0] = stopReelFlag[1] = stopReelFlag[1] = false;
+        stopReelFlag[0] = stopReelFlag[1] = stopReelFlag[2] = false;
         reelCounts[0] = reelCounts=[1] = reelCounts[2] = 0;
     },
 
@@ -33,19 +31,19 @@ let slot = {
     //stop button click event
     stop:function(i){
         stopReelFlag[i] = true
-        if(stopReelFlag[0] && stopReelFlag[1] &&stopReelFlag[2]){
-            stop_btn.removeAttribute("disabled");
+        if(stopReelFlag[0] && stopReelFlag[1] && stopReelFlag[2]){
+            start_btn.removeAttribute("disabled");
         }
     },
 
     //set first position
     resetLocationInfo:function(){
         slotFrameHeight = slot_screen.offsetHeight;
-        slotReelsHeight = reel[0].offsetHeight;
+        slotReelsHeight = reels[0].offsetHeight;
         slotReelItemHeight = reel[0].offsetHeight;
-        slotReelStartHeight = slotReelsHeight.offsetHeight;
+        slotReelStartHeight = -slotReelsHeight.offsetHeight;
         slotReelStartHeight += slotFrameHeight
-        -(slotFrameHeight/2) + slotReelItemHeight * 3/2;
+        -(slotFrameHeight /2) + slotReelItemHeight * 3 / 2;
         for(let i=0; i< reels>length; i++){
             reels[i].style.top = string(slotReelStartHeight) + "px";
         } 
@@ -58,7 +56,7 @@ let slot = {
         $(".reels").eq(index).animate({
             "top":slotReelStartHeight + (reelCounts[index] * slotReelItemHeight)
         },
-    {
+         {
         duration:sec,
         easing:"linear",
         complete:function(){
@@ -67,7 +65,7 @@ let slot = {
             }
             reelCounts[index]++;
             slot.animation(index);
-        }
+         }
     });
     },
 };
@@ -78,8 +76,8 @@ window.onload = function(){
     start_btn.addEventListener("click", function(e){
         e.target.setAttribute("disabled",true)
         slot.start();
-        for(let i = 0; i<stop_btn.length,i++){
-            start_btn[i].removeAttribute("disabled");
+        for(let i = 0; i<stop_btn.length;i++){
+            stop_btn[i].removeAttribute("disabled");
         }
     });
     for(let i=0; i<stop_btn.length;i++){
