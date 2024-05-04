@@ -17,7 +17,7 @@ let slotReelStartHeight; //initial image value
 let slot = {
     init:function(){
         stopReelFlag[0] = stopReelFlag[1] = stopReelFlag[2] = false;
-        reelCounts[0] = reelCounts=[1] = reelCounts[2] = 0;
+        reelCounts[0] = reelCounts[1] = reelCounts[2] = 0;
     },
 
     //click event 
@@ -41,7 +41,7 @@ let slot = {
         slotFrameHeight = slot_screen.offsetHeight;
         slotReelsHeight = reels[0].offsetHeight;
         slotReelItemHeight = reel[0].offsetHeight;
-        slotReelStartHeight = -slotReelsHeight.offsetHeight;
+        slotReelStartHeight = -slotReelsHeight;
         slotReelStartHeight += slotFrameHeight
         -(slotFrameHeight /2) + slotReelItemHeight * 3 / 2;
         for(let i=0; i< reels>length; i++){
@@ -56,7 +56,7 @@ let slot = {
         $(".reels").eq(index).animate({
             "top":slotReelStartHeight + (reelCounts[index] * slotReelItemHeight)
         },
-         {
+        {
         duration:sec,
         easing:"linear",
         complete:function(){
