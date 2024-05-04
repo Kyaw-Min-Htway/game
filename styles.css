@@ -113,3 +113,48 @@ ul li{
     border: none;
 }
 
+/* Default styles */
+
+/* Your existing CSS code goes here */
+
+/* Responsive design */
+
+@media only screen and (max-width: 768px) {
+    .slot {
+        width: 88%;
+        height: 400px;
+        overflow: hidden;
+        margin: auto;
+        margin-top: 120px;
+        background-color: aliceblue;
+        border-radius: 8px;
+        box-shadow: var(--outer-shadow);
+    }
+    
+    .reels{
+        width: 31%;
+        position: absolute;
+        padding: 0px;
+    }
+    
+    
+    .stop-btn, #start-btn {
+        padding: 15px 30px;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .slot {
+        margin-top: 120px;
+    }
+    
+    .stop-btn, #start-btn {
+        padding: 10px 20px;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+}
+
+
